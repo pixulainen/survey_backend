@@ -1,4 +1,4 @@
 class QuestionType < ApplicationRecord
-  belongs_to :question
+  has_one :question
   belongs_to :survey
 end

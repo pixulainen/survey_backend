@@ -16,6 +16,21 @@ class UsersController < ApplicationController
           render json: { error: "Not authorized" }
         end
       end
-    
+
+      def show	
+        user = User.find(params[:id])	
+        render json: user, serializer: UserSerializer, include: "*.*.*"	
+      end	
+
+
+  private	
+
+  def user_params	
+      params.require(:user).permit(:username,:password,:name,:surname,:email)	
+  end	
+
 
 end
+    
+
+
